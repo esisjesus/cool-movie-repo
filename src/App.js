@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Layout from './components/Layout/Layout'
+import NotFound from './pages/NotFound/NotFound'
+import Home from './pages/Home/Home'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
+import {fas} from '@fortawesome/free-solid-svg-icons'
 import './App.css';
+
+library.add(fab, fas);
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </Router>
     </div>
   );
 }
-
 export default App;
