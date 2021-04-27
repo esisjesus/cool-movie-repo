@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../navbar/navbar'
+import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 export default function Layout({children}) {
     return (
         <React.Fragment>
-            <Navbar/>
+            <Header/>
                 <main>{children}</main>
             <Footer/>
         </React.Fragment>
